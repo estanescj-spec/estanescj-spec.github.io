@@ -1,144 +1,121 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Multimedia & Authoring</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Multimedia & Authoring</title>
 
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
-  <style>
-    :root {
-      --bg: #ffffff;
-      --text: #111111;
-      --muted: #6b6b6b;
-      --accent: #1a56db;
-      --border: #e8e8e8;
-    }
+<style>
+:root {
+  --bg:#ffffff;
+  --text:#111;
+  --muted:#6b6b6b;
+  --accent:#1a56db;
+}
 
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+*{margin:0;padding:0;box-sizing:border-box;}
 
-    body {
-      background: var(--bg);
-      color: var(--text);
-      font-family: 'DM Sans', sans-serif;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-    }
+body{
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
 
-    /* NAV */
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 22px 60px;
-      border-bottom: 1px solid var(--border);
-      position: sticky;
-      top: 0;
-      background: rgba(255,255,255,0.95);
-      backdrop-filter: blur(8px);
-      z-index: 100;
-    }
+/* NAVBAR */
+nav{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 60px;
+  background:rgba(255,255,255,0.85);
+  backdrop-filter:blur(10px);
+  box-shadow:0 4px 20px rgba(0,0,0,0.05);
+  z-index:100;
+}
 
-    .logo {
-      font-size: 15px;
-      font-weight: 600;
-      color: var(--text);
-      text-decoration: none;
-    }
+.logo{
+  font-weight:600;
+  font-size:15px;
+  text-decoration:none;
+  color:var(--text);
+}
 
-    .logo span {
-      color: var(--accent);
-    }
+.logo span{ color:var(--accent); }
 
-    .nav-links {
-      display: flex;
-      gap: 36px;
-    }
+.nav-links a{
+  margin-left:30px;
+  text-decoration:none;
+  color:var(--muted);
+  font-size:14px;
+}
 
-    .nav-links a {
-      text-decoration: none;
-      color: var(--muted);
-      font-size: 14px;
-    }
+.nav-links a:hover{ color:var(--text); }
 
-    .nav-links a:hover {
-      color: var(--text);
-    }
+/* HERO */
+.hero{
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
+}
 
-    /* HERO CENTERED */
-    .hero {
-      flex: 1;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 40px 20px;
-    }
+.hero-inner{ max-width:700px; }
 
-    .hero-inner {
-      max-width: 700px;
-    }
+.hero-label{
+  font-size:12px;
+  letter-spacing:0.12em;
+  color:var(--accent);
+  margin-bottom:20px;
+}
 
-    .hero-label {
-      font-size: 12px;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent);
-      margin-bottom: 20px;
-    }
+h1{
+  font-size:clamp(40px,6vw,60px);
+  margin-bottom:20px;
+}
 
-    .hero h1 {
-      font-size: clamp(36px, 5vw, 56px);
-      font-weight: 600;
-      line-height: 1.1;
-      margin-bottom: 20px;
-    }
+h1 em{
+  color:var(--muted);
+  font-style:normal;
+}
 
-    .hero h1 em {
-      font-style: normal;
-      color: var(--muted);
-      font-weight: 300;
-    }
+.hero-desc{
+  color:var(--muted);
+  font-size:16px;
+}
 
-    .hero-desc {
-      font-size: 16px;
-      color: var(--muted);
-      line-height: 1.6;
-    }
-
-    /* MOBILE */
-    @media (max-width: 700px) {
-      nav { padding: 18px 24px; }
-    }
-  </style>
+/* MOBILE */
+@media(max-width:700px){
+  nav{padding:16px 20px;}
+}
+</style>
 </head>
 
 <body>
 
-  <nav>
-    <a href="index.html" class="logo">Multimedia <span>&</span> Authoring</a>
-    <div class="nav-links">
-      <a href="solar-system.html">Solar System</a>
-      <a href="rotoscope.html">Rotoscope</a>
-      <a href="about.html">About</a>
-    </div>
-  </nav>
+<nav>
+  <a href="index.html" class="logo">Multimedia <span>&</span> Authoring</a>
+  <div class="nav-links">
+    <a href="solar-system.html">Solar System</a>
+    <a href="rotoscope.html">Rotoscope</a>
+  </div>
+</nav>
 
-  <section class="hero">
-    <div class="hero-inner">
-      <p class="hero-label">CHARLIE ESTANES JR. — BSIT - S - 2A</p>
-      <h1>Multimedia <em>&</em> Authoring</h1>
-      <p class="hero-desc">
-        A portfolio of multimedia projects covering 3D animation in Blender and frame-by-frame rotoscope work. Built for academic documentation and presentation.
-      </p>
-    </div>
-  </section>
+<section class="hero">
+  <div class="hero-inner">
+    <p class="hero-label">CHARLIE ESTANES JR. — BSIT - S - 2A</p>
+    <h1>Multimedia <em>&</em> Authoring</h1>
+    <p class="hero-desc">
+      A portfolio of multimedia projects covering 3D animation in Blender and frame-by-frame rotoscope work. Built for academic documentation and presentation.
+    </p>
+  </div>
+</section>
 
 </body>
 </html>
