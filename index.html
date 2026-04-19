@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Multimedia and Authoring</title>
+
   <style>
     * {
       margin: 0;
@@ -13,8 +14,8 @@
     }
 
     body {
-      background: #0f172a;
-      color: #fff;
+      background: #ffffff;
+      color: #111827;
     }
 
     /* NAVBAR */
@@ -23,83 +24,113 @@
       justify-content: space-between;
       align-items: center;
       padding: 15px 40px;
-      background: #020617;
-      border-bottom: 1px solid #1e293b;
+      border-bottom: 1px solid #e5e7eb;
+      position: sticky;
+      top: 0;
+      background: white;
     }
 
     .logo {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: bold;
     }
 
     .nav-links {
       display: flex;
-      gap: 25px;
+      gap: 20px;
     }
 
     .nav-links a {
       text-decoration: none;
-      color: #cbd5f5;
+      color: #374151;
       font-size: 14px;
-      transition: 0.3s;
+      transition: 0.2s;
     }
 
     .nav-links a:hover {
-      color: #38bdf8;
+      color: #2563eb;
     }
 
     /* HERO */
     .hero {
-      height: 90vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+      padding: 80px 20px;
       text-align: center;
-      padding: 20px;
     }
 
     .hero h1 {
-      font-size: 48px;
+      font-size: 42px;
       margin-bottom: 10px;
     }
 
     .hero p {
-      color: #94a3b8;
-      font-size: 18px;
+      font-size: 16px;
+      color: #6b7280;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
-    /* BUTTON */
     .btn {
       margin-top: 20px;
       display: inline-block;
-      padding: 10px 20px;
-      background: #38bdf8;
-      color: #020617;
+      padding: 10px 18px;
+      background: #2563eb;
+      color: white;
       text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-      transition: 0.3s;
+      border-radius: 6px;
+      font-size: 14px;
     }
 
     .btn:hover {
-      background: #0ea5e9;
+      background: #1d4ed8;
+    }
+
+    /* SECTIONS */
+    .section {
+      padding: 60px 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .section h2 {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
+
+    .section p {
+      color: #6b7280;
+      line-height: 1.6;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    .card {
+      border: 1px solid #e5e7eb;
+      padding: 20px;
+      border-radius: 10px;
+      background: #fafafa;
     }
 
     /* FOOTER */
     footer {
       text-align: center;
       padding: 20px;
+      border-top: 1px solid #e5e7eb;
       font-size: 12px;
-      color: #64748b;
-      border-top: 1px solid #1e293b;
+      color: #6b7280;
     }
   </style>
 </head>
+
 <body>
 
   <!-- NAVBAR -->
   <nav>
-    <div class="logo">Multimedia and Authoring</div>
+    <div class="logo">Multimedia & Authoring</div>
     <div class="nav-links">
       <a href="#">Solar System</a>
       <a href="#">Rotoscope</a>
@@ -109,10 +140,41 @@
 
   <!-- HERO -->
   <section class="hero">
-    <div>
-      <h1>Welcome</h1>
-      <p>Explore interactive projects in multimedia and authoring</p>
-      <a href="#" class="btn">Get Started</a>
+    <h1>Welcome to Our Website</h1>
+    <p>
+      A simple collection of multimedia projects including animation, visualization, and digital effects.
+    </p>
+    <a href="#projects" class="btn">Explore Projects</a>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="section">
+    <h2>About This Site</h2>
+    <p>
+      This website is created for multimedia and authoring activities. It showcases different interactive and visual projects such as solar system simulation and rotoscope animation.
+    </p>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="section" id="projects">
+    <h2>Projects</h2>
+    <p>Click a project in the navigation bar to explore.</p>
+
+    <div class="cards">
+      <div class="card">
+        <h3>Solar System</h3>
+        <p>Interactive visualization of planets and space.</p>
+      </div>
+
+      <div class="card">
+        <h3>Rotoscope</h3>
+        <p>Frame-by-frame animation using video processing.</p>
+      </div>
+
+      <div class="card">
+        <h3>About</h3>
+        <p>Information about the creators and purpose.</p>
+      </div>
     </div>
   </section>
 
