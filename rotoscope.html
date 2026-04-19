@@ -1,1 +1,170 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Rotoscope</title>
 
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  font-family:DM Sans;
+  background:#f7f7f7;
+  padding-top:80px;
+}
+
+/* NAV (SAME FOR ALL PAGES) */
+.navbar{
+  position:fixed;
+  top:0;
+  width:100%;
+  display:flex;
+  justify-content:space-between;
+  padding:18px 60px;
+  background:rgba(255,255,255,0.92);
+  backdrop-filter:blur(12px);
+  box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  z-index:999;
+}
+
+/* HEADER (LESS SPACE) */
+.page-header{
+  max-width:1100px;
+  margin:auto;
+  padding:10px 20px 0 20px;
+}
+
+.page-header h1{
+  font-size:30px;
+  margin:0;
+}
+
+.page-header p{
+  margin:5px 0 10px 0;
+  color:#666;
+}
+
+/* CONTAINER */
+.container{
+  max-width:1100px;
+  margin:auto;
+  padding:15px 20px 40px 20px;
+}
+
+/* CARDS */
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:16px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  margin-bottom:20px;
+}
+
+/* VIDEO GRID */
+.video-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:20px;
+  margin-top:10px;
+}
+
+/* FIXED VIDEO SIZE */
+iframe,video{
+  width:100%;
+  height:420px;
+  border-radius:12px;
+  object-fit:cover;
+}
+
+/* TEXT STYLE */
+h2,h3{
+  margin:0 0 10px 0;
+}
+
+p{
+  color:#555;
+  line-height:1.6;
+}
+
+/* PROCEDURE LIST STYLE */
+.steps{
+  padding-left:18px;
+  color:#555;
+}
+
+.steps li{
+  margin-bottom:6px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<div class="navbar">
+  <div class="logo">Multimedia <span>&</span> Authoring</div>
+
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="solar-system.html">Solar System</a>
+    <a href="rotoscope.html">Rotoscope</a>
+    <a href="about.html">About</a>
+  </div>
+</div>
+
+<!-- HEADER (CLEAN SPACING) -->
+<div class="page-header">
+  <h1>Rotoscope: Live Action</h1>
+  <p>Frame-by-frame animation based on reference video</p>
+</div>
+
+<div class="container">
+
+<!-- MAIN CARD (VIDEOS + DISCLAIMER) -->
+<div class="card">
+
+  <h2>Project Overview</h2>
+
+  <div class="video-grid">
+
+    <div>
+      <h3>Reference Video</h3>
+      <iframe src="https://www.youtube.com/embed/-OnJe-fhQsE"></iframe>
+    </div>
+
+    <div>
+      <h3>Final Output</h3>
+      <video controls>
+        <source src="final.mp4">
+      </video>
+    </div>
+
+  </div>
+
+  <div style="margin-top:15px;">
+    <h3>Disclaimer</h3>
+    <p>Credits to the original video owner. This project is for educational purposes only.</p>
+  </div>
+
+</div>
+
+<!-- PROCEDURE (ADDED FIX) -->
+<div class="card">
+
+  <h2>Procedure</h2>
+
+  <ol class="steps">
+    <li>Imported reference video frames</li>
+    <li>Created frame-by-frame tracing</li>
+    <li>Cleaned and refined animation</li>
+    <li>Compiled frames into sequence</li>
+    <li>Added final rendering and export</li>
+  </ol>
+
+</div>
+
+</div>
+
+</body>
+</html>
