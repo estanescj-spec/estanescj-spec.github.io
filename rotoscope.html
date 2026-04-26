@@ -1,40 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Rotoscope</title>
+<title>Solar System</title>
 
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --blue:#2563eb;
-  --blue-2:#7c3aed;
-  --teal:#14b8a6;
-  --bg:#f6f9ff;
-  --surface:rgba(255,255,255,0.78);
-  --border:rgba(37,99,235,0.14);
+  --primary:#2563eb;
+  --text:#1a1a1a;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --bg:#fafafa;
 }
 
 body{
-  margin:0;
-  font-family:DM Sans;
-  padding-top:0;
-  background:#f7f7f7;
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
-/* NAVBAR (UPDATED BIGGER VERSION) */
+/* NAVBAR */
 .navbar{
   position:fixed;
   top:0;
-  left:0;
   width:100%;
+  height:68px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:0 60px;
-  height:68px;
   background:rgba(255,255,255,0.92);
   backdrop-filter:blur(12px);
   border:1px solid rgba(37,99,235,0.12);
@@ -51,282 +48,350 @@ body{
   border-color:rgba(37,99,235,0.18);
 }
 
-.logo{
-  font-weight:600;
-  font-size:20px;
-}
+.logo{font-weight:600;font-size:20px}
+.logo span{color:var(--primary)}
 
-.logo span{
-  color:#1a56db;
-}
-
-.nav-links{
-  display:flex;
-  gap:20px;
-  align-items:center;
-}
-
+.nav-links{display:flex;gap:20px;align-items:center}
 .nav-links a{
   text-decoration:none;
-  color:#666;
+  color:var(--muted);
   font-size:15px;
   padding:8px 14px;
   border-radius:8px;
   transition:background 0.2s,color 0.2s,transform 0.2s;
 }
-
 .nav-links a:hover{
-  color:var(--blue);
+  color:var(--primary);
   background:rgba(37,99,235,0.08);
   transform:translateY(-1px);
 }
 
-/* HEADER FIXED SPACING */
+/* HEADER */
 .header{
   max-width:1100px;
   margin:auto;
-  padding:110px 20px 0 20px;
+  padding:100px 10px 10px;
 }
 
-.header h1{
-  margin:0;
-  font-size:30px;
-}
-
-.header p{
-  margin:5px 0 0 0;
-  color:#666;
-}
-
-/* CONTENT */
-.content{
+/* MAIN */
+main{
   max-width:1100px;
   margin:auto;
-  padding:20px;
+  padding:10px 20px 20px;
 }
 
-/* SECTION */
-.section{
-  margin-bottom:24px;
-  padding:22px;
-  border-radius:20px;
-  border:1px solid var(--border);
-  background:var(--surface);
-  backdrop-filter:blur(12px);
-}
-
-.tools-row{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-.tool-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid rgba(37,99,235,0.14);
-  background:rgba(255,255,255,0.82);
-  color:#334155;
-  font-size:13px;
-  font-weight:500;
-}
-.tool-badge{
-  width:22px;
-  height:22px;
-  border-radius:50%;
-  display:grid;
-  place-items:center;
-  color:#fff;
-  font-size:11px;
-  font-weight:700;
-}
-.tool-badge.ae{background:linear-gradient(135deg,#5b6cff,#7c3aed)}
-.tool-badge.cc{background:linear-gradient(135deg,#111827,#374151)}
-
-/* VIDEO GRID */
-.video-grid{
+/* TOP 2 COLUMNS */
+.top-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:20px;
+  gap:14px; /* tighter gap */
+  margin-bottom:32px;
 }
 
-iframe,video{
-  width:100%;
-  height:380px;
-  border-radius:12px;
-}
-
-.weeks-grid{
-  display:grid;
-  grid-template-columns:repeat(3,minmax(0,1fr));
-  gap:16px;
-}
-
-.week-card{
-  background:linear-gradient(180deg, rgba(255,255,255,0.96), rgba(246,249,255,0.96));
-  border:1px solid rgba(37,99,235,0.10);
-  border-radius:12px;
-  padding:12px;
-}
-
-.week-card h3{
-  margin:0 0 10px 0;
-  font-size:16px;
-  color:var(--blue);
-}
-
-.video-holder{
+/* VIDEO 16:9 */
+.video-box{
   width:100%;
   aspect-ratio:16/9;
-  border:2px dashed #d2d2d2;
+}
+
+.video-box iframe,
+.video-placeholder{
+  width:100%;
+  aspect-ratio:16/9;
+  border:0;
+}
+
+video{
+  width:100%;
+  height:100%;
   border-radius:10px;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  color:#777;
-  font-size:13px;
-  text-align:center;
-  padding:8px;
+  object-fit:cover;
+}
+
+.video-box iframe{
+  width:100%;
+  height:100%;
+  display:block;
+  border-radius:10px;
 }
 
 /* TEXT */
-h2,h3{margin:0 0 10px 0;}
-p{color:#555;line-height:1.6;}
-
-.content h2,
-.content h3{
-  color:#1f2937;
+.text-block h3{
+  margin-bottom:4px;
 }
 
-/* DISCLAIMER */
-.disclaimer{
-  margin-top:15px;
-  padding-top:15px;
-  border-top:1px solid rgba(37,99,235,0.10);
-  color:#555;
+.text-block p{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:10px;
+  line-height:1.5;
 }
 
-.note{
-  margin-top:15px;
-  color:#555;
+/* BLENDER */
+.blender{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
 }
 
-/* PROCEDURE */
-.steps{
-  padding-left:18px;
-  color:#555;
+.blender img{
+  width:20px;
+  height:20px;
 }
 
-.steps li{
-  margin-bottom:6px;
-}
-
-.footer{
-  border-top:1px solid rgba(37,99,235,0.14);
-  color:#334155;
-  text-align:center;
-  padding:18px 20px;
-  font-size:13px;
+/* CALCULATOR */
+.calc-section{
+  border:1px solid var(--border);
+  border-radius:12px;
   background:#fff;
+  padding:14px;
+}
+
+.calc-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:12px;
+  align-items:start;
+}
+
+.calc-panel{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px;
+  background:#fafafa;
+}
+
+.calc-panel h3{
+  margin-bottom:8px;
+}
+
+input{
+  width:100%;
+  padding:9px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  margin-top:0;
+}
+
+/* PLANETS */
+.planets{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+  gap:6px;
+  margin-top:0;
+}
+
+.planet{
+  border:1px solid var(--border);
+  padding:7px;
+  border-radius:8px;
+  font-size:12px;
+  text-align:center;
+}
+
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+
+.card{
+  border:1px solid var(--border);
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.card iframe{
+  width:100%;
+  height:130px;
+  border:0;
+}
+
+.card-content{
+  padding:10px;
+}
+
+.card h3{font-size:15px;margin-bottom:3px}
+.card p{font-size:12px;color:var(--muted)}
+
+.card.sun{
+  border-color:rgba(245,158,11,0.35);
+}
+
+.card.sun h3{
+  color:#d97706;
+}
+
+/* FOOTER */
+.footer{
+  text-align:center;
+  padding:16px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .top-grid{
+    grid-template-columns:1fr;
+  }
+
+  .calc-grid{
+    grid-template-columns:1fr;
+  }
+
+  .cards{
+    grid-template-columns:repeat(2,minmax(0,1fr));
+  }
+}
+
+@media(max-width:600px){
+  .cards{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">Multimedia <span>&</span> Authoring</div>
-
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="solar-system.html">Solar System</a>
     <a href="rotoscope.html">Rotoscope</a>
-
     <a href="about.html">About</a>
   </div>
 </div>
 
-<!-- HEADER -->
 <div class="header">
-  <h1>Rotoscope: Live Action</h1>
-  <p>Frame-by-frame animation based on reference footage</p>
+  <h1>Blender: Solar System</h1>
+  <p>3D planetary motion simulation using Blender</p>
 </div>
 
-<main class="content">
+<main>
 
-<!-- PROJECT -->
-<section class="section">
+<div class="top-grid">
 
-  <h2>Project Overview</h2>
+  <div class="video-box">
+    <video controls>
+      <source src="solar.mp4">
+    </video>
+  </div>
 
-  <div class="video-grid">
+  <div class="video-box">
+    <iframe src="https://www.youtube.com/embed/-OnJe-fhQsE"></iframe>
+  </div>
 
-    <div>
-      <h3>Reference Video</h3>
-      <iframe src="https://www.youtube.com/embed/-OnJe-fhQsE"></iframe>
+</div>
+
+<p style="margin-top:-10px; margin-bottom:18px; color:var(--muted); font-size:14px; line-height:1.5; font-style:italic;">
+  Credits to original owner of video. For educational purposes only.
+</p>
+
+<div class="text-block">
+
+  <h3>Procedure</h3>
+  <p>
+    procedure...
+  </p>
+
+</div>
+
+<div class="blender">
+  <img alt="Adobe After Effects" src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Adobe_After_Effects_CC_icon.svg">
+  <span>Adobe After Effects</span>
+  <img alt="CapCut" src="https://1000logos.net/wp-content/uploads/2025/01/CapCut-Emblem-2048x1152.png">
+  <span>CapCut</span>
+</div>
+
+<br><br><br>
+
+<section class="calc-section">
+
+  <h2>12 Weeks Progress Timeline</h2>
+
+  <div class="cards">
+
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/d_eWBw0okxw" title="Week 1 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 1</h3></div>
     </div>
 
-    <div>
-      <h3>Final Output</h3>
-      <video controls>
-        <source src="final.mp4">
-      </video>
+    <div class="card">
+      <iframe src="https://www.youtube.com/embed/SgUZOpDwzbs" title="Week 2 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 2</h3></div>
+    </div>
+
+    <div class="card">
+      <iframe src="week3.mp4" title="Week 3 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 3</h3></div>
+    </div>
+
+    <div class="card">
+      <iframe src="week4.mp4" title="Week 4 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 4</h3></div>
+    </div>
+
+    <div class="card">
+      <iframe src="week5.mp4" title="Week 5 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 5</h3></div>
+    </div>
+
+    <div class="card">
+      <iframe src="week6.mp4" title="Week 6 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 6</h3></div>
+    </div>
+
+    <div class="card">
+      <iframe src="week7.mp4 " title="Week 7 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 7</h3></div>
+    </div>
+
+    <div class="card">
+      <iframe src="week8.mp4" title="Week 8 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 8</h3></div>
+    </div>
+
+    <div class="card">
+      <iframe src="week9.mp4" title="Week 9 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 9</h3></div>
+    </div>
+
+    <div class="card">
+      <iframe src="week10.mp4" title="Week 10 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 10</h3></div>
+    </div>
+
+    <div class="card">
+      <iframe src="week11.mp4" title="Week 11 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 11</h3></div>
+    </div>
+
+    <div class="card">
+      <iframe src="week12.mp4" title="Week 12 video" allowfullscreen></iframe>
+      <div class="card-content"><h3>Week 12</h3></div>
     </div>
 
   </div>
 
-  <p class="note">Credits to the original owner. For educational purposes only.</p>
-
-  <div class="tools-row" aria-label="Tools used">
-    <span class="tool-pill"><span class="tool-badge ae">Ae</span>Adobe After Effects</span>
-    <span class="tool-pill"><span class="tool-badge cc">Cc</span>CapCut</span>
-  </div>
-
 </section>
 
-<!-- PROCEDURE -->
-<section class="section">
-  <h2>Procedure</h2>
-
-  <ol class="steps">
-    <li>Selected reference video</li>
-    <li>Frame extraction</li>
-    <li>Rotoscoping process</li>
-    <li>Cleaning frames</li>
-    <li>Final compilation</li>
-  </ol>
-
-</section>
-
-<!-- 12 WEEKS VIDEO HOLDER -->
-<section class="section">
-  <h2>12 Weeks Production Timeline</h2>
-
-  <div class="weeks-grid">
-    <div class="week-card"><h3>Week 1</h3><div class="video-holder">Week 1 Video</div></div>
-    <div class="week-card"><h3>Week 2</h3><div class="video-holder">Week 2 Video</div></div>
-    <div class="week-card"><h3>Week 3</h3><div class="video-holder">Week 3 Video</div></div>
-    <div class="week-card"><h3>Week 4</h3><div class="video-holder">Week 4 Video</div></div>
-    <div class="week-card"><h3>Week 5</h3><div class="video-holder">Week 5 Video</div></div>
-    <div class="week-card"><h3>Week 6</h3><div class="video-holder">Week 6 Video</div></div>
-    <div class="week-card"><h3>Week 7</h3><div class="video-holder">Week 7 Video</div></div>
-    <div class="week-card"><h3>Week 8</h3><div class="video-holder">Week 8 Video</div></div>
-    <div class="week-card"><h3>Week 9</h3><div class="video-holder">Week 9 Video</div></div>
-    <div class="week-card"><h3>Week 10</h3><div class="video-holder">Week 10 Video</div></div>
-    <div class="week-card"><h3>Week 11</h3><div class="video-holder">Week 11 Video</div></div>
-    <div class="week-card"><h3>Week 12</h3><div class="video-holder">Week 12 Video</div></div>
-  </div>
-</section>
+<br><br><br>
 
 </main>
 
+<br><br><br>
+
 <footer class="footer">
   FOR ACADEMIC PURPOSES ONLY<br>
-  © 2026 by Estanes, Charlie Jr. C. All rights reserved.
+  © 2026 by Estanes, Charlie Jr. C.
 </footer>
 
 </body>
