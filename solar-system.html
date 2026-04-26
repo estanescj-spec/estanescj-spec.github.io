@@ -6,35 +6,32 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 
 <style>
-*{box-sizing:border-box;}
+*{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --blue:#2563eb;
-  --blue-2:#7c3aed;
-  --teal:#14b8a6;
-  --bg:#f6f9ff;
-  --surface:rgba(255,255,255,0.78);
-  --border:rgba(37,99,235,0.14);
+  --primary:#2563eb;
+  --text:#1a1a1a;
+  --muted:#6b7280;
+  --border:#e5e7eb;
+  --bg:#fafafa;
 }
 
 body{
-  margin:0;
-  font-family:DM Sans;
-  padding-top:0;
-  background:#f7f7f7;
+  font-family:'DM Sans',sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
-/* NAVBAR (UPDATED BIGGER VERSION) */
+/* NAVBAR */
 .navbar{
   position:fixed;
   top:0;
-  left:0;
   width:100%;
+  height:68px;
   display:flex;
   justify-content:space-between;
   align-items:center;
   padding:0 60px;
-  height:68px;
   background:rgba(255,255,255,0.92);
   backdrop-filter:blur(12px);
   border:1px solid rgba(37,99,235,0.12);
@@ -51,32 +48,20 @@ body{
   border-color:rgba(37,99,235,0.18);
 }
 
-.logo{
-  font-weight:600;
-  font-size:20px;
-}
+.logo{font-weight:600;font-size:20px}
+.logo span{color:var(--primary)}
 
-.logo span{
-  color:#1a56db;
-}
-
-.nav-links{
-  display:flex;
-  gap:20px;
-  align-items:center;
-}
-
+.nav-links{display:flex;gap:20px;align-items:center}
 .nav-links a{
   text-decoration:none;
-  color:#666;
+  color:var(--muted);
   font-size:15px;
   padding:8px 14px;
   border-radius:8px;
   transition:background 0.2s,color 0.2s,transform 0.2s;
 }
-
 .nav-links a:hover{
-  color:var(--blue);
+  color:var(--primary);
   background:rgba(37,99,235,0.08);
   transform:translateY(-1px);
 }
@@ -85,199 +70,301 @@ body{
 .header{
   max-width:1100px;
   margin:auto;
-  padding:110px 20px 0 20px; /* FIXED spacing under navbar */
+  padding:100px 10px 10px;
 }
 
-.header h1{
-  margin:0;
-  font-size:30px;
-}
-
-.header p{
-  margin:5px 0 0 0;
-  color:#666;
-}
-
-/* CONTENT */
-.content{
+/* MAIN */
+main{
   max-width:1100px;
   margin:auto;
-  padding:20px;
+  padding:10px;
 }
 
-/* SECTION */
-.section{
-  margin-bottom:24px;
-  padding:22px;
-  border-radius:20px;
-  border:1px solid var(--border);
-  background:var(--surface);
-  backdrop-filter:blur(12px);
-}
-
-.tools-row{
-  display:flex;
-  gap:10px;
-  flex-wrap:wrap;
-  margin-top:12px;
-}
-.tool-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:8px;
-  padding:8px 12px;
-  border-radius:999px;
-  border:1px solid rgba(37,99,235,0.14);
-  background:rgba(255,255,255,0.82);
-  color:#334155;
-  font-size:13px;
-  font-weight:500;
-}
-.tool-badge{
-  width:22px;
-  height:22px;
-  border-radius:50%;
+/* TOP 2 COLUMNS */
+.top-grid{
   display:grid;
-  place-items:center;
-  color:#fff;
-  font-size:11px;
-  font-weight:700;
-  background:linear-gradient(135deg,#ffb000,#ff7a00);
+  grid-template-columns:1fr 1fr;
+  gap:14px; /* tighter gap */
+  margin-bottom:14px;
 }
 
-/* VIDEO */
+/* VIDEO 16:9 */
+.video-box{
+  width:100%;
+  aspect-ratio:16/9;
+}
+
 video{
   width:100%;
-  height:420px;
-  border-radius:12px;
+  height:100%;
+  border-radius:10px;
   object-fit:cover;
-  margin-top:10px;
 }
 
-/* GRID */
-.grid{
+/* TEXT */
+.text-block h3{
+  margin-bottom:4px;
+}
+
+.text-block p{
+  font-size:14px;
+  color:var(--muted);
+  margin-bottom:10px;
+  line-height:1.5;
+}
+
+/* BLENDER */
+.blender{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  margin-top:8px;
+}
+
+.blender img{
+  width:20px;
+  height:20px;
+}
+
+/* CALCULATOR */
+.calc-section{
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+  padding:14px;
+}
+
+.calc-grid{
   display:grid;
-  grid-template-columns:1fr;
-  gap:10px;
-  margin-top:15px;
+  grid-template-columns:1fr 1fr;
+  gap:16px;
+  margin-top:12px;
+  align-items:start;
 }
 
-/* INPUT */
+.calc-panel{
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:14px;
+  background:#fafafa;
+}
+
+.calc-panel h3{
+  margin-bottom:8px;
+}
+
 input{
   width:100%;
-  padding:12px;
-  margin-top:10px;
-  border-radius:10px;
-  border:1px solid #ddd;
+  padding:9px;
+  border-radius:8px;
+  border:1px solid var(--border);
+  margin-top:0;
 }
 
 /* PLANETS */
 .planets{
   display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:8px;
-  margin-top:10px;
+  grid-template-columns:repeat(auto-fit,minmax(110px,1fr));
+  gap:6px;
+  margin-top:0;
 }
 
 .planet{
-  background:linear-gradient(180deg, rgba(255,255,255,0.95), rgba(246,249,255,0.95));
-  border:1px solid rgba(37,99,235,0.10);
-  padding:10px;
-  border-radius:10px;
-  font-size:14px;
+  border:1px solid var(--border);
+  padding:7px;
+  border-radius:8px;
+  font-size:12px;
+  text-align:center;
 }
 
-/* SCRIPT */
-.script-box{
-  margin-bottom:24px;
-  padding:22px;
-  border-radius:20px;
+/* CARDS */
+.cards{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+  gap:12px;
+  margin-top:16px;
+}
+
+.card{
   border:1px solid var(--border);
-  background:var(--surface);
-  backdrop-filter:blur(12px);
+  border-radius:12px;
+  overflow:hidden;
+  background:#fff;
+}
+
+.card img{
+  width:100%;
+  height:130px;
+  object-fit:cover;
+}
+
+.card-content{
+  padding:10px;
+}
+
+.card h3{font-size:15px;margin-bottom:3px}
+.card p{font-size:12px;color:var(--muted)}
+
+/* SCRIPT */
+.script{
+  margin-top:14px;
+  padding:14px;
+  border:1px solid var(--border);
+  border-radius:12px;
+  background:#fff;
+}
+
+.section + .section{
+  margin-top:48px;
 }
 
 pre{
-  margin:0;
-  background:rgba(255,255,255,0.82);
-  padding:15px;
-  border-radius:12px;
-  overflow:auto;
+  margin-top:8px;
+  background:#f3f4f6;
+  padding:10px;
+  border-radius:8px;
   font-size:13px;
 }
 
+/* FOOTER */
 .footer{
-  border-top:1px solid rgba(255,255,255,0.12);
-  color:#fff;
   text-align:center;
-  padding:18px 20px;
-  font-size:13px;
-  background:#000;
+  padding:16px;
+  font-size:12px;
+  color:var(--muted);
+}
+
+/* MOBILE */
+@media(max-width:900px){
+  .top-grid{
+    grid-template-columns:1fr;
+  }
+
+  .calc-grid{
+    grid-template-columns:1fr;
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">Multimedia <span>&</span> Authoring</div>
-
   <div class="nav-links">
     <a href="index.html">Home</a>
     <a href="solar-system.html">Solar System</a>
     <a href="rotoscope.html">Rotoscope</a>
-
     <a href="about.html">About</a>
   </div>
 </div>
 
-<!-- HEADER -->
 <div class="header">
   <h1>Blender: Solar System</h1>
   <p>3D planetary motion simulation using Blender</p>
 </div>
 
-<main class="content">
+<main>
 
-<!-- VIDEO -->
-<section class="section">
-  <h2>Animation Video</h2>
+<div class="top-grid">
 
-  <video controls>
-    <source src="solar.mp4">
-  </video>
+  <div class="video-box">
+    <video controls>
+      <source src="solar.mp4">
+    </video>
+  </div>
 
-  <div class="grid">
-    <div>
-      <h3>Description</h3>
-      <p>3D solar system animation showing planetary motion and orbit.</p>
+  <div class="text-block">
+
+    <h3>Description</h3>
+    <p>
+      A 3D simulation of the solar system showing planetary orbits, motion timing,
+      and relative distances to visually explain how planets revolve around the sun.
+    </p>
+
+    <br><br><br>
+
+    <h3>Method</h3>
+    <p></p>
+
+    <div class="blender">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Blender_logo_no_text.svg">
+      <span>Blender</span>
     </div>
 
-    <div>
-      <h3>Method</h3>
-      <p>Modeling → Texturing → Lighting → Animation → Rendering</p>
+  </div>
+
+</div>
+
+<br><br><br>
+
+<section class="calc-section">
+
+  <h2>Earth Age Calculator</h2>
+  <div class="calc-grid">
+    <div class="calc-panel">
+      <h3>Input</h3>
+      <input type="number" id="age" oninput="calc()" placeholder="Enter Earth age">
+    </div>
+
+    <div class="calc-panel">
+      <h3>Output</h3>
+      <div class="planets" id="out"></div>
     </div>
   </div>
 
-  <div class="tools-row" aria-label="Tools used">
-    <span class="tool-pill"><span class="tool-badge">B</span>Blender</span>
+  <div class="cards">
+
+    <div class="card">
+      <img src="https://space-facts.com/wp-content/uploads/mercury.png">
+      <div class="card-content"><h3>Mercury</h3><p>Closest planet to the Sun.</p></div>
+    </div>
+
+    <div class="card">
+      <img src="https://space-facts.com/wp-content/uploads/venus.png">
+      <div class="card-content"><h3>Venus</h3><p>Hottest planet.</p></div>
+    </div>
+
+    <div class="card">
+      <img src="https://space-facts.com/wp-content/uploads/earth.png">
+      <div class="card-content"><h3>Earth</h3><p>Supports life.</p></div>
+    </div>
+
+    <div class="card">
+      <img src="https://space-facts.com/wp-content/uploads/mars.png">
+      <div class="card-content"><h3>Mars</h3><p>Red planet.</p></div>
+    </div>
+
+    <div class="card">
+      <img src="https://space-facts.com/wp-content/uploads/jupiter.png">
+      <div class="card-content"><h3>Jupiter</h3><p>Largest planet in the solar system.</p></div>
+    </div>
+
+    <div class="card">
+      <img src="https://space-facts.com/wp-content/uploads/saturn.png">
+      <div class="card-content"><h3>Saturn</h3><p>Known for its rings.</p></div>
+    </div>
+
+    <div class="card">
+      <img src="https://space-facts.com/wp-content/uploads/uranus.png">
+      <div class="card-content"><h3>Uranus</h3><p>Ice giant with a tilted axis.</p></div>
+    </div>
+
+    <div class="card">
+      <img src="https://space-facts.com/wp-content/uploads/neptune.png">
+      <div class="card-content"><h3>Neptune</h3><p>Farthest known planet from the Sun.</p></div>
+    </div>
+
   </div>
+
 </section>
 
-<!-- AGE CALCULATOR -->
-<section class="section">
-  <h2>Age Calculator (Planet Years)</h2>
-  <input type="number" id="age" oninput="calc()" placeholder="Enter Earth age">
+<br><br><br>
 
-  <div class="planets" id="out"></div>
-</section>
-
-<!-- SCRIPT -->
-<section class="script-box">
+<section class="script">
   <h2>Script</h2>
 <pre>
-printf("Hello World!")
+printf("Hello World!");
 </pre>
 </section>
 
@@ -285,7 +372,8 @@ printf("Hello World!")
 
 <script>
 const r={
-Mercury:0.24,Venus:0.62,Earth:1,Mars:1.88,Jupiter:11.86,Saturn:29.4,Uranus:84,Neptune:165,Pluto:248
+Mercury:0.24,Venus:0.62,Earth:1,Mars:1.88,
+Jupiter:11.86,Saturn:29.4,Uranus:84,Neptune:165
 };
 
 function calc(){
@@ -301,7 +389,8 @@ calc();
 </script>
 
 <footer class="footer">
-  © 2026 Charlie Estanes Jr. · Multimedia & Authoring
+  FOR ACADEMIC PURPOSES ONLY<br>
+  © 2026 by Estanes, Charlie Jr. C.
 </footer>
 
 </body>
